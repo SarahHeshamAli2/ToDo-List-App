@@ -125,12 +125,17 @@ function addNewTask () {
         writingSection.style.opacity=0
         writingSection.style.zIndex=-2
         clearTextArea()
+    updatedAllWrittenTasks.isCompleted = JSON.parse(localStorage.getItem('allTasks'))[myIndexReveal].isCompleted
         displayAllTasks()
         const taskUpdt=document.querySelector('.taskUpdt') 
         taskUpdt.style.opacity = 1
         taskUpdt.style.zIndex = '222'
     
-       
+
+
+
+
+        
         setTimeout(() => {
             taskUpdt.style.opacity = 0
             taskUpdt.style.zIndex = -5
@@ -141,7 +146,7 @@ function addNewTask () {
         localStorage.setItem('allTasks' , JSON.stringify(allTasks))
         
     }
-  
+
     
 }
 
@@ -259,6 +264,8 @@ function updateText (index) {
     writingSection.style.opacity = '1'
     writingSection.style.zIndex = '1'
     myIndexReveal = index
+    
+    
 
 
 
