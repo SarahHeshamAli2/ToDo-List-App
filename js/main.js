@@ -9,6 +9,7 @@ const newTaskRow = document.querySelector('.newTaskRow')
 const searchInput = document.getElementById('searchInput')
 const myDocument = document.querySelector('.container')
 let myIndexReveal = 0 
+const deleteAllList = document.querySelector('.deleteAllList')
 
 //function to show and hide text area
 
@@ -43,7 +44,8 @@ let allTasks = []
 if(localStorage.getItem('allTasks')) {
 
     allTasks = JSON.parse(localStorage.getItem('allTasks') ,
-    searchInput.style.display = "block"
+    searchInput.style.display = "block",
+    deleteAllList.style.display = "block"
 
     
 
@@ -59,6 +61,8 @@ console.log(allTasks.length);
 
  if   (   allTasks.length == 0) {
     searchInput.style.display = "none"
+    deleteAllList.classList.add('d-none')
+
 
 }
 
@@ -91,7 +95,8 @@ function addNewTask () {
         writingSection.style.zIndex=-2
         clearTextArea()
         displayAllTasks()
-    
+    deleteAllList.classList.remove('d-none')
+    searchInput.classList.remove('d-none')
         searchInput.style.display='block'
     
         taskAddedSucc.style.opacity = 1
@@ -213,7 +218,11 @@ function deleteTask(index ) {
    
 
 
-
+    if(allTasks.length == 0 ) {
+       searchInput.style.display = 'none',
+       deleteAllList.style.display = 'none'
+        
+    }
 
     taskDeleted.style.opacity = 1
     taskDeleted.style.zIndex = '222'
@@ -398,4 +407,13 @@ searchInput.addEventListener('input' , function(){
 
 
 
+deleteAllList.addEventListener('click' , emptyList)
+function emptyList() {
+
+    localStorage.removeItem('allTasks')
+    allTasks = []
+    displayAllTasks()
+    deleteAllList.classList.add('d-none')
+    searchInput.classList.add('d-none')
+}
 

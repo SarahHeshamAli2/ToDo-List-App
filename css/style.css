@@ -97,3 +97,9 @@ body .container {
         font-size: 10px;
         color: #b8b3b3;
      }
+
+
+
+     .deleteAllList , .searchInput {
+        display: none;
+     }
