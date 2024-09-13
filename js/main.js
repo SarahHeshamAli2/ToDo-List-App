@@ -175,12 +175,14 @@ function displayAllTasks () {
                     <p class="m-0 taskValue writingT done">${allTasks[i].taskContent}</p>
                   
                     <div class="editDeleteIcons">
+                    
                         <i  class="fa-regular fa-pen-to-square" onclick =' updateText(${i})'></i>
                         <i class="fa-regular fa-trash-can " onclick="deleteTask(${i})"></i>
                     </div>
                  
                 </div>
-    
+                    <span class = 'dateOfTask'> ${allTasks[i].dateOfTask} </span>
+
             </div></div> ` : `<div class="col-11">       <div class="wirtingTask   border-bottom " >
                 <div class="d-flex justify-content-between">
                 
@@ -347,6 +349,7 @@ function searchByWord(term) {
                 </div>
              
             </div>
+                <span class = 'dateOfTask'> ${allTasks[i].dateOfTask} </span>
 
         </div></div>` : `
                 <div class="col-1">
