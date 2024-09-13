@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>To-Do List</title>
+</head>
+<body>
+    
+   <div class="container my-4">
+    
+    <div class="img w-50 ">
+         <img src="11224199.jpg" alt="" class="w-50 todoImg">
+        </div>
+    
+        <div class="addNewTask position-relative">
+            <button class="btn btn-outline-primary addNewTaskBtn my-2">Add New Task</button>
+            <div class="search w-50 " >
+                <input type="text" class="form-control" placeholder="search tasks" id="searchInput">
+            </div>
+
+            <div class="taskAddedSucc">
+                <div class="alert alert-success" role="alert">
+                    task added successfully
+                  </div>
+              </div>
+
+              <div  class="taskDeleted">
+                <div class="alert alert-danger" role="alert">
+                    task deleted !
+                  </div>
+              </div>
+              <div class="taskCompleted">
+                <div class="alert alert-success" role="alert">
+                    task completed!
+                  </div>
+              </div>
+        </div>
+
+        <div class="form-floating writingSection w-75 px-3 m-2 ">
+            <textarea class="form-control textingArea" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Add new task</label>
+            <button class="btn btn-outline-success my-2 addTaskTextArea">add task</button>
+          </div>
+
+    
+
+            <div class="newTaskRow row my-3" >
+     
+
+         
+
+
+
+    </div>
+ 
+   </div>
+
+
+
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body .container {
+    font-family:  cursive ;
+
+}
+
+
+.btn-outline-primary:hover {
+    background-color : #0d6dfd37 !important; 
+}
+
+.myLabel {
+    border-radius: 0 !important;
+    padding: 10px  !important;
+}
+
+.wirtingSubmitBtn {
+    padding: 5px !important;
+}
+.writingSection {
+    position: fixed !important;
+    background-color: white;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -10;
+    
+}
+
+.editDeleteIcons {
+    cursor: pointer ;}
+
+
+.fa-trash-can {
+    color: #dc3545;
+}
+.fa-trash-can:hover {
+    color: #8f202b;
+}
+
+.fa-pen-to-square {
+    color: #ffc107;
+}
+
+.fa-pen-to-square:hover {
+    color: #c29205;
+
+}
+.taskAddedSucc , .taskDeleted , .taskCompleted {
+    transition: 0.25s all;
+    position: absolute;
+    z-index: -222;
+    opacity: 0;
+    top: 0;
+}
+
+.moveThisTaskToBin {
+    display: none;
+    position: absolute;
+}
+
+
+.square {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    border: 1px solid ;
+    }
+
+     body {text-decoration-color:red }
+
+     #searchInput {
+        display: none;
+     }
+
+
+     .done {
+        text-decoration: line-through;
+        background-color: #008b8b0f;
+
+     }
+
+ 
+     label {
+        left: unset !important;
+     }
+    
+
+     @media screen and (max-width : 900px) {
+        .todoImg {
+            width: 100% !important;
+        }
+     }
+
+     .dateOfTask {
+        font-size: 10px;
+        color: #b8b3b3;
+     }
