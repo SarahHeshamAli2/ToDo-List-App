@@ -1,5 +1,5 @@
 body .container {
-    font-family:  cursive ;
+    font-family: "Ubuntu", sans-serif;
 
 }
 
@@ -45,7 +45,7 @@ body .container {
     color: #c29205;
 
 }
-.taskAddedSucc , .taskDeleted , .taskCompleted {
+.taskAddedSucc , .taskDeleted , .taskCompleted ,.taskUpdt {
     transition: 0.25s all;
     position: absolute;
     z-index: -222;
@@ -75,10 +75,12 @@ body .container {
 
      .done {
         text-decoration: line-through;
-        background-color: #008b8b0f;
 
      }
+.completedBg {
+    background-color: #008b8b0f;
 
+}
  
      label {
         left: unset !important;

@@ -52,6 +52,7 @@ if(localStorage.getItem('allTasks')) {
 displayAllTasks()
 }
  
+console.log(allTasks.length);
 
 
 
@@ -120,7 +121,17 @@ function addNewTask () {
         writingSection.style.zIndex=-2
         clearTextArea()
         displayAllTasks()
-        
+        const taskUpdt=document.querySelector('.taskUpdt') 
+        taskUpdt.style.opacity = 1
+        taskUpdt.style.zIndex = '222'
+    
+       
+        setTimeout(() => {
+            taskUpdt.style.opacity = 0
+            taskUpdt.style.zIndex = -5
+    
+    
+        }, 1500);
         searchInput.style.display='block'
         localStorage.setItem('allTasks' , JSON.stringify(allTasks))
         
@@ -149,9 +160,9 @@ function displayAllTasks () {
             </div>
             
 
-            ${allTasks[i].isCompleted ? `<div class="col-11">       <div class="wirtingTask done  border-bottom " >
+            ${allTasks[i].isCompleted ? `<div class="col-11">       <div class="wirtingTask completedBg  border-bottom " >
                 <div class="d-flex justify-content-between">
-                    <p class="m-0 taskValue writingT">${allTasks[i].taskContent}</p>
+                    <p class="m-0 taskValue writingT done">${allTasks[i].taskContent}</p>
                   
                     <div class="editDeleteIcons">
                         <i  class="fa-regular fa-pen-to-square" onclick =' updateText(${i})'></i>
@@ -170,7 +181,7 @@ function displayAllTasks () {
                     </div>
                  
                 </div>
-    
+                <span class = 'dateOfTask'> ${allTasks[i].dateOfTask} </span>
             </div></div>`}
             
 
@@ -232,14 +243,16 @@ function deleteTask(index ) {
 
 function updateText (index) {
 
+    searchInput.value = ``
 
-
-    console.log('updated! ' , allTasks[index]);
     textingArea.value = allTasks[index].taskContent
     addTaskTextArea.innerHTML = 'update'
     writingSection.style.opacity = '1'
     writingSection.style.zIndex = '1'
     myIndexReveal = index
+
+
+
 }
 
 
@@ -268,10 +281,12 @@ const taskCompleted = document.querySelector('.taskCompleted')
 
 
 
-    const wirtingTask = document.querySelectorAll('.wirtingTask')
-    console.log(wirtingTask[id]);
+    const taskValue = document.querySelectorAll('.taskValue')
+    const writingBg = document.querySelectorAll('.wirtingTask ')
+
     
-    allTasks[id].isCompleted == true ? wirtingTask[id].classList.add('done') :  wirtingTask[id].classList.remove('done')
+    allTasks[id].isCompleted == true ? taskValue[id].classList.add('done') :  taskValue[id].classList.remove('done')
+    allTasks[id].isCompleted == true ? writingBg[id].classList.add('completedBg') :  writingBg[id].classList.remove('completedBg')
 
     localStorage.setItem('allTasks' , JSON.stringify(allTasks))
    
@@ -307,9 +322,9 @@ function searchByWord(term) {
 
         </div>
         
-        <div class="col-11">       <div class="wirtingTask done  border-bottom ">
+        <div class="col-11">       <div class="wirtingTask completedBg  border-bottom ">
             <div class="d-flex justify-content-between">
-                <p class="m-0 taskValue writingT">${allTasks[i].taskContent.toLowerCase().replace(term.trim().toLowerCase() ,`<span style="background-color: #FFFF00" >${term} </span>` ).trim()}</p>
+                <p class="m-0 taskValue writingT done">${allTasks[i].taskContent.toLowerCase().replace(term.trim().toLowerCase() ,`<span style="background-color: #FFFF00" >${term} </span>` ).trim()}</p>
                 <div class="editDeleteIcons">
                     <i  class="fa-regular fa-pen-to-square"  onclick =' updateText(${i})'></i>
                     <i class="fa-regular fa-trash-can " onclick="deleteTask(${i})"></i>
@@ -335,6 +350,7 @@ function searchByWord(term) {
                 </div>
              
             </div>
+                <span class = 'dateOfTask'> ${allTasks[i].dateOfTask} </span>
 
         </div></div>`}
 
